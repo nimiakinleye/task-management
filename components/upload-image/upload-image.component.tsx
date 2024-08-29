@@ -25,6 +25,14 @@ const UploadImage: FC<IProps> = ({ getImage, currentImage }) => {
 
     const item = files[0];
 
+    const size = Number(item.size ?? 0);
+
+    if (size > 0.5 * 1024 * 1024) {
+      toast.error(`File size must be less than 500 kb`);
+
+      return;
+    }
+
     if (
       item.type === "image/jpeg" ||
       item.type === "image/jpg" ||
