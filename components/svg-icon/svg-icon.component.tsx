@@ -7,9 +7,16 @@ interface IProps {
   width?: number;
   height?: number;
   clickable?: boolean;
+  onClick?: () => void;
 }
 
-const SvgIcon: FC<IProps> = ({ iconName, width, height, clickable }) => {
+const SvgIcon: FC<IProps> = ({
+  iconName,
+  width,
+  height,
+  clickable,
+  onClick,
+}) => {
   return (
     <Image
       className={`${clickable && "cursor-pointer"}`}
@@ -18,6 +25,7 @@ const SvgIcon: FC<IProps> = ({ iconName, width, height, clickable }) => {
       alt={iconName}
       width={width || 16}
       height={height || 16}
+      onClick={onClick}
     />
   );
 };

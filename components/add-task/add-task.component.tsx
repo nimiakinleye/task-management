@@ -17,6 +17,7 @@ import useAddTask, {
 } from "@/react-query/mutations/useAddTask";
 import { v4 as uuidv4 } from "uuid";
 import useUpdateTask from "@/react-query/mutations/useUpdateTask";
+import UploadImage from "../upload-image/upload-image.component";
 
 interface IAddTaskPayloadType {
   name: string;
@@ -24,11 +25,12 @@ interface IAddTaskPayloadType {
   priority: PRIORITY_TYPE;
   due_date: string;
   due_time: string;
+  cover_image: string | ArrayBuffer | null | undefined;
 }
 
 type Props = {
   close: () => void;
-
+  category: keyof typeof CATEGORIES;
   edit?: boolean;
 } & (
   | {
@@ -36,13 +38,13 @@ type Props = {
       values: {
         title: string;
         description?: string;
+        cover_image?: string;
         priority: PRIORITY_TYPE;
         due_date: string;
         id: string;
       };
-      category?: never;
     }
-  | { edit?: false; values?: never; category: keyof typeof CATEGORIES }
+  | { edit?: false; values?: never }
 );
 
 const AddTask: FC<Props> = ({ close, values, category, edit }) => {
@@ -79,6 +81,7 @@ const AddTask: FC<Props> = ({ close, values, category, edit }) => {
     const payload: CreateTaskPayload = {
       title: data.name,
       description: data.description,
+      cover_image: data.cover_image,
       category: category ?? "to_do",
       priority: data.priority,
       due_date: dayjs(`${data.due_date}T${data.due_time}`).toISOString(),
@@ -187,6 +190,20 @@ const AddTask: FC<Props> = ({ close, values, category, edit }) => {
           <InputControl.Error text={errors.priority?.message as string} />
         </InputControl>
 
+        <InputControl>
+          <Label>
+            Upload cover{" "}
+            <span className="font-regular text-[14px] text-[#848585]">
+              (Optional)
+            </span>
+          </Label>
+
+          <UploadImage
+            currentImage={values?.cover_image}
+            getImage={(e) => setValue("cover_image", e)}
+          />
+        </InputControl>
+
         <div className="flex justify-between gap-4">
           <InputControl>
             <Label>Deadline</Label>
@@ -230,7 +247,7 @@ const AddTask: FC<Props> = ({ close, values, category, edit }) => {
 
         <button
           className={`w-full text-white rounded-[12px] mt-[30px] py-3 bg-[#4F35F3] ${
-            loading && "bg-opacity-50 cursor-not-allowed"
+            loading ? "bg-opacity-50 cursor-not-allowed" : ""
           }`}
           disabled={loading}
         >

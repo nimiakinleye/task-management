@@ -7,6 +7,7 @@ import { addTask } from "@/utils/local-storage/task";
 export interface CreateTaskPayload {
   title: string;
   description?: string;
+  cover_image?: string | ArrayBuffer | null | undefined;
   id: string;
   priority: PRIORITY_TYPE;
   due_date: string;

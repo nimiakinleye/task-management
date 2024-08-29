@@ -12,6 +12,7 @@ interface ITask {
   description?: string;
   due_date: string;
   id: string;
+  cover_image?: string;
 }
 
 interface IProps {
@@ -55,6 +56,7 @@ const CategoryComponent: FC<IProps> = ({ category, tasks }) => {
           description={el.description}
           due_date={el.due_date}
           priority={el.priority}
+          cover_image={el.cover_image}
         />
       ))}
     </div>

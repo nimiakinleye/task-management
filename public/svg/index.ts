@@ -13,6 +13,8 @@ import CloseCircle from "./close-circle.svg";
 import CaretDown from "./caret-down.svg";
 import Tick from "./tick.svg";
 import Plus from "./plus.svg";
+import Upload from "./upload.svg";
+import Delete from "./delete.svg";
 
 const SVGs = {
   ["arrow-right"]: ArrowRight,
@@ -30,6 +32,8 @@ const SVGs = {
   ["caret-down"]: CaretDown,
   ["tick"]: Tick,
   ["plus"]: Plus,
+  ["upload"]: Upload,
+  ["delete"]: Delete,
 };
 
 export default SVGs;

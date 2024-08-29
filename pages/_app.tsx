@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Inter } from "next/font/google";
 import { ReactElement, ReactNode } from "react";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
       <ToastContainer />
       <QueryClientProvider client={queryClient}>
         {getLayout(<Component {...pageProps} />)}
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </main>
   );

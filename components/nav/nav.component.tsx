@@ -37,13 +37,14 @@ const Nav: FC = () => {
             href={nav.link}
             key={key}
             className={`p-[27px] uppercase text-[#65676D] dark:text-gray-100 dark:hover:text-gray-900 hover:bg-[#F5F3FF] font-semibold ${
-              nav.title === "Calendar" &&
-              "bg-[#F5F3FF] border-r-[6px] border-[#4F35F3]"
+              nav.title === "Calendar"
+                ? "bg-[#F5F3FF] border-r-[6px] border-[#4F35F3]"
+                : ""
             }`}
           >
             <div
               className={`flex gap-[20px] ${
-                nav.title === "Calendar" && "text-[#4F35F3]"
+                nav.title === "Calendar" ? "text-[#4F35F3]" : ""
               }`}
             >
               <SvgIcon

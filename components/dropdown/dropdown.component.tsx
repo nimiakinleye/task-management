@@ -52,8 +52,9 @@ DropdownComponent.Item = function DropdownComponentItem({
     <DropdownMenu.Item
       onSelect={onSelect}
       className={`group text-[13px] p-2 leading-none text-[#252C32] rounded-[3px] select-none outline-none data-[disabled]:text-mauve8 data-[disabled]:pointer-events-none data-[highlighted]:bg-violet9 data-[highlighted]:text-violet1 ${
-        danger &&
-        "text-[#E60C02] data-[highlighted]:bg-[#E60C02] data-[highlighted]:text-white"
+        danger
+          ? "text-[#E60C02] data-[highlighted]:bg-[#E60C02] data-[highlighted]:text-white"
+          : ""
       }`}
     >
       {children}

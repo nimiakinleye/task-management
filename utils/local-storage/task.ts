@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 interface TasksType {
   title: string;
   description?: string;
+  cover_image?: string;
   id: string;
   priority: PRIORITY_TYPE;
   due_date: string;

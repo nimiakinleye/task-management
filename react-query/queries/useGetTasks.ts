@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { QUERY_KEYS } from "../keys";
 import { getTasks } from "@/utils/local-storage/task";
-import { CATEGORIES } from "@/helpers/constants";
 
 const useGetTasks = () => {
   return useQuery({
@@ -14,6 +13,7 @@ const useGetTasks = () => {
         due_date: task.due_date,
         category: task.category,
         id: task.id,
+        cover_image: task.cover_image ?? undefined,
       }));
 
       return {

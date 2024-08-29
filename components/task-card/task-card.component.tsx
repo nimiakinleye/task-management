@@ -15,6 +15,7 @@ import useModalRef from "@/hooks/useModalRef";
 import AddTask from "../add-task/add-task.component";
 import useUpdateTask from "@/react-query/mutations/useUpdateTask";
 import useDeleteTask from "@/react-query/mutations/useDeleteTask";
+import Image from "next/image";
 
 interface IProps {
   priority: PRIORITY_TYPE;
@@ -22,6 +23,7 @@ interface IProps {
   description?: string;
   due_date: string;
   id: string;
+  cover_image?: string;
 
   category: CATEGORY_TYPE;
 }
@@ -33,6 +35,7 @@ const TaskCard: FC<IProps> = ({
   due_date,
   id,
   category,
+  cover_image,
 }) => {
   const editTaskRef = useModalRef();
 
@@ -40,7 +43,15 @@ const TaskCard: FC<IProps> = ({
   const { mutate: deleteTask } = useDeleteTask();
 
   const handleMoveTask = (key: CATEGORY_TYPE) => {
-    updateTask({ category: key, due_date, id, priority, title, description });
+    updateTask({
+      category: key,
+      due_date,
+      id,
+      priority,
+      title,
+      description,
+      cover_image,
+    });
   };
 
   return (
@@ -102,6 +113,18 @@ const TaskCard: FC<IProps> = ({
           </DropdownComponent>
         </div>
 
+        {cover_image && (
+          <Image
+            style={{ objectFit: "cover", maxHeight: "120px" }}
+            alt={"cover_image"}
+            className="rounded-md mb-2 border"
+            width={304}
+            height={120}
+            objectFit="cover"
+            src={`${cover_image}`}
+          />
+        )}
+
         {description && (
           <p className="font-regular text-[#252C32] text-[14]">{description}</p>
         )}
@@ -117,6 +140,7 @@ const TaskCard: FC<IProps> = ({
                   : "flag"
               }
             />
+
             <p className="text-[#6E7C87]">
               {dayjs(due_date).format(DATE_FORMAT)}
             </p>
@@ -132,12 +156,14 @@ const TaskCard: FC<IProps> = ({
         <AddTask
           close={editTaskRef.close}
           edit
+          category={category}
           values={{
             description,
             title,
             priority,
             due_date,
             id,
+            cover_image,
           }}
         />
       </ModalComponent>
