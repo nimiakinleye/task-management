@@ -1,0 +1,19 @@
+.input_control input,
+.input_control textarea {
+  height: 48px;
+  border-radius: 12px;
+  border: 1px #d0d5dd solid;
+  outline: none;
+  padding: 0 14px;
+  width: 100%;
+}
+
+.input_control textarea {
+  min-height: 96px;
+  padding: 16px 14px;
+}
+
+.dark .input_control input {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
