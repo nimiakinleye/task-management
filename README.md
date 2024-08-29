@@ -35,6 +35,11 @@ Mention how to use or interact with the project, including any special instructi
 Once the app is running, you can create tasks by clicking the "+" button.
 ```
 
+## Deployment
+
+This project is deployed on Vercel. You can view the live application here:
+[https://quiktask.vercel.app](https://quiktask.vercel.app)
+
 ## License
 
 This project is licensed under the MIT License.

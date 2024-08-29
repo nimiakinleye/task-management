@@ -25,10 +25,10 @@ const ModalComponent = forwardRef<ModalRefType, IProps>(
           <div>{trigger}</div>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="backdrop-blur-sm bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
+          <Dialog.Overlay className="px-4 backdrop-blur-sm bg-blackA6 data-[state=open]:animate-overlayShow fixed inset-0" />
           <Dialog.Content
-            style={{ width: "min(100%, 462px)" }}
-            className="py-[44px] px-[32px] data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] focus:outline-none"
+            style={{ width: "min(95%, 462px)" }}
+            className="py-[44px] px-[32px] overflow-auto data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] translate-x-[-50%] translate-y-[-50%] bg-white p-[25px] focus:outline-none"
           >
             <div className="flex justify-between items-center mb-[32px]">
               <Dialog.Title className="m-0 text-[24px] text-[#1A1919] font-semibold">
