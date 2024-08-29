@@ -9,13 +9,22 @@ import {
   TIME_FORMAT,
 } from "@/helpers/constants";
 import DropdownComponent from "../dropdown/dropdown.component";
-import formatPriorityStyle from "@/utils/formatPriorityStyle";
 import ModalComponent from "../modal/modal.component";
 import useModalRef from "@/hooks/useModalRef";
 import AddTask from "../add-task/add-task.component";
 import useUpdateTask from "@/react-query/mutations/useUpdateTask";
 import useDeleteTask from "@/react-query/mutations/useDeleteTask";
 import Image from "next/image";
+
+export const formatPriorityStyle = (priority: PRIORITY_TYPE) => {
+  return priority === "low"
+    ? "text-[#EC5962] bg-[#FDF2F2]"
+    : priority === "high"
+    ? "text-[#4F9C20] bg-[#EBFAE2]"
+    : priority === "medium"
+    ? "text-[#3069FE] bg-[#EEF3FF]"
+    : "";
+};
 
 interface IProps {
   priority: PRIORITY_TYPE;

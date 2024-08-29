@@ -11,13 +11,13 @@ import {
   PRIORITY_OPTIONS,
   PRIORITY_TYPE,
 } from "@/helpers/constants";
-import formatPriorityStyle from "@/utils/formatPriorityStyle";
 import useAddTask, {
   CreateTaskPayload,
 } from "@/react-query/mutations/useAddTask";
 import { v4 as uuidv4 } from "uuid";
 import useUpdateTask from "@/react-query/mutations/useUpdateTask";
 import UploadImage from "../upload-image/upload-image.component";
+import { formatPriorityStyle } from "../task-card/task-card.component";
 
 interface IAddTaskPayloadType {
   name: string;
