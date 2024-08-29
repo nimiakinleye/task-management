@@ -1,6 +1,7 @@
 import Nav from "@/components/nav/nav.component";
+import SvgIcon from "@/components/svg-icon/svg-icon.component";
 import Head from "next/head";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 
 interface IProps {
   children: ReactNode;
@@ -8,6 +9,11 @@ interface IProps {
 }
 
 const GeneralLayout: FC<IProps> = ({ children, pageTitle }) => {
+  const [showNav, setShowNav] = useState(false);
+
+  const toggleNav = () => {
+    setShowNav(!showNav);
+  };
   return (
     <>
       <Head>
@@ -15,9 +21,12 @@ const GeneralLayout: FC<IProps> = ({ children, pageTitle }) => {
       </Head>
 
       <div className="xl:grid grid-cols-12 min-h-screen">
-        <Nav />
+        <Nav showNav={showNav} toggleNav={toggleNav} />
 
         <main className="flex flex-col items-center xl:items-start col-span-10 px-8 pt-[42.56px] xl:pl-[32px]">
+          <div className="my-4 flex self-end xl:hidden">
+            <SvgIcon onClick={toggleNav} iconName={showNav ? "close-circle" : "notes"} />
+          </div>
           {children}
         </main>
       </div>
