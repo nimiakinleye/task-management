@@ -31,8 +31,8 @@ const HomePage: NextPageWithLayout = () => {
 
   return (
     <>
-      <div className="flex w-full justify-between items-center">
-        <div className="flex gap-[16px] items-center mb-[36px]">
+      <div className="flex w-full justify-center xl:justify-between items-center mb-[36px] flex-wrap gap-6">
+        <div className="flex gap-[16px] items-center">
           <h2 className="font-semibold text-lg xl:text-[36px]">
             {date.format("D MMMM YYYY")}
           </h2>
