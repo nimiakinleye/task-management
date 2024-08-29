@@ -15,6 +15,7 @@ import Tick from "./tick.svg";
 import Plus from "./plus.svg";
 import Upload from "./upload.svg";
 import Delete from "./delete.svg";
+import Search from "./search.svg";
 
 const SVGs = {
   ["arrow-right"]: ArrowRight,
@@ -34,6 +35,7 @@ const SVGs = {
   ["plus"]: Plus,
   ["upload"]: Upload,
   ["delete"]: Delete,
+  ["search"]: Search,
 };
 
 export default SVGs;
