@@ -7,11 +7,11 @@ import SVGs from "@/public/svg";
 import SwitchComponent from "../switch/switch.component";
 
 const NavData = [
-  { title: "Calendar", link: "/calendar", iconName: "calendar" },
-  { title: "Inbox", link: "/calendar", iconName: "inbox" },
-  { title: "Notes", link: "/calendar", iconName: "notes" },
-  { title: "Todo List", link: "/calendar", iconName: "todo-list" },
-  { title: "Settings", link: "/calendar", iconName: "notes" },
+  { title: "Calendar", link: "/", iconName: "calendar" },
+  { title: "Inbox", link: "/", iconName: "inbox" },
+  { title: "Notes", link: "/", iconName: "notes" },
+  { title: "Todo List", link: "/", iconName: "todo-list" },
+  { title: "Settings", link: "/", iconName: "notes" },
 ];
 
 interface IProps {
