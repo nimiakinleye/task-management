@@ -25,8 +25,8 @@ const CategoryComponent: FC<IProps> = ({ category, tasks }) => {
 
   return (
     <div
-      style={{ width: "min(352px, 100%)" }}
-      className="bg-[#F5F7F9] dark:bg-gray-700 px-[8px] py-[12px] h-fit rounded-[8px] flex flex-col gap-2"
+      style={{ minWidth: "min(80%, 352px)" }}
+      className="bg-[#F5F7F9] dark:bg-gray-700 px-[8px] py-[12px] h-fit rounded-[8px] flex flex-col gap-2 max-h-[70vh] xl:max-h-[80vh] overflow-auto"
     >
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
@@ -47,6 +47,7 @@ const CategoryComponent: FC<IProps> = ({ category, tasks }) => {
           <AddTask category={category} close={addTaskRef.close} />
         </ModalComponent>
       </div>
+
       {tasks?.map((el, key) => (
         <TaskCard
           category={category}

@@ -30,7 +30,7 @@ const HomePage: NextPageWithLayout = () => {
   };
 
   return (
-    <>
+    <div className="mb-8 w-full">
       <div className="flex w-full justify-center xl:justify-between items-center mb-[36px] flex-wrap gap-6">
         <div className="flex gap-[16px] items-center">
           <h2 className="font-semibold text-lg xl:text-[36px]">
@@ -63,7 +63,7 @@ const HomePage: NextPageWithLayout = () => {
         </div>
       </div>
 
-      <div className="flex gap-[24px] w-full justify-center xl:justify-start align-center flex-wrap">
+      <div className="flex gap-[24px] w-full xl:justify-start align-center overflow-auto">
         {Object.keys(CATEGORIES).map((el, key) => {
           return (
             <CategoryComponent
@@ -74,7 +74,7 @@ const HomePage: NextPageWithLayout = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
